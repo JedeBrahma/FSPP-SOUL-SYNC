@@ -50,7 +50,7 @@ export default function NewEntryForm() {
 
       })
       .catch((error) => console.log(error));
-  }, [entry]);
+  }, []);
 
   //quote -
   useEffect(() => {
@@ -61,9 +61,7 @@ export default function NewEntryForm() {
     });
   }, []);
 
-  useEffect(() => {
-    if (allQuotes.length) getQuote();
-  }, [getQuote]);
+  
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);
@@ -75,8 +73,11 @@ export default function NewEntryForm() {
       author: author,
     }));
     setEntry({ ...entry, quote: text, q_author: author });
-    // console.log(text, "does this show");
+
   };
+  useEffect(() => {
+    if (allQuotes.length) getQuote();
+  },[allQuotes]);
 
   const addEntry = (newEntry) => {
     axios

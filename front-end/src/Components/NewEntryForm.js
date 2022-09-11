@@ -63,7 +63,7 @@ export default function NewEntryForm() {
 
   useEffect(() => {
     if (allQuotes.length) getQuote();
-  }, [allQuotes, getQuote]);
+  }, [getQuote]);
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);

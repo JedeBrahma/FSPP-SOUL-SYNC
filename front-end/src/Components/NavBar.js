@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import { Navbar, Container, Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
 
-const day = new Date();
+
 export default function NavBar() {
   return (
     <Container fluid>  

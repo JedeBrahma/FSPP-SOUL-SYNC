@@ -1,22 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import bootstrapBundleMin from "bootstrap/dist/js/bootstrap.bundle.min";
 import { UserProvider } from "./Providers/UserProvider";
 import {
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Button,
-  Link,
-  Brand,
+  Container
+
 } from "react-bootstrap";
 import "./index.css";
 
 // PAGES
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
-import Home from "./Pages/Home";
+// import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";

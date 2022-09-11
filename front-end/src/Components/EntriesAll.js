@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleEntry from "./SingleEntry";
-import {Container, row, col} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 
 const API = process.env.REACT_APP_API_URL;

@@ -47,10 +47,11 @@ export default function NewEntryForm() {
           card_name: response.data.cards[0].name,
           card_desc: response.data.cards[0].meaning_up,
         });
-        console.log(response, "<----- visible card");
+        // console.log(response, "<----- visible card");
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [entry]);
+
   //quote -
   useEffect(() => {
     axios.get(quotesAPI).then((response) => {
@@ -62,7 +63,7 @@ export default function NewEntryForm() {
 
   useEffect(() => {
     if (allQuotes.length) getQuote();
-  }, [allQuotes]);
+  }, [allQuotes, getQuote]);
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);
@@ -74,7 +75,7 @@ export default function NewEntryForm() {
       author: author,
     }));
     setEntry({ ...entry, quote: text, q_author: author });
-    console.log(text, "does this show");
+    // console.log(text, "does this show");
   };
 
   const addEntry = (newEntry) => {

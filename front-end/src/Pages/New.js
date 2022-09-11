@@ -1,6 +1,6 @@
 import NewEntryForm from "../Components/NewEntryForm";
 import "./New.css";
-import bootstrapBundleMin from "bootstrap/dist/js/bootstrap"
+
 
 function New() {
   return (

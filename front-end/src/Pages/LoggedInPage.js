@@ -7,10 +7,10 @@ import { Button, Card } from "react-bootstrap";
 
 
 export const LoggedInPage = () => {
-  const imgStyle = {
-      width:'30vh',
-      height:'30vh'
-  }
+//   const imgStyle = {
+//       width:'30vh',
+//       height:'30vh'
+//   }
   const navigate = useNavigate();
   const user = useContext(UserContext);
   

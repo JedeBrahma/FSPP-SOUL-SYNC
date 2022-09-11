@@ -50,7 +50,7 @@ export default function NewEntryForm() {
         // console.log(response, "<----- visible card");
       })
       .catch((error) => console.log(error));
-  }, [entry]);
+  }, []);
 
   //quote -
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function NewEntryForm() {
 
   useEffect(() => {
     if (allQuotes.length) getQuote();
-  }, [getQuote]);
+  }, [allQuotes]);
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);
@@ -134,8 +134,7 @@ export default function NewEntryForm() {
           placeholder={cards[0]?.meaning_up}
         />
       </Form.Group>
-
-    
+    <div>
       <label htmlFor="liked">Like:</label>{' '}
       <input
         id="liked"
@@ -143,7 +142,7 @@ export default function NewEntryForm() {
         onChange={handleCheckboxChange}
         checked={entry.liked}
       />
-      <br />
+     </div>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput3">
         <Form.Label htmlFor="quote">Quote of the Day:</Form.Label>

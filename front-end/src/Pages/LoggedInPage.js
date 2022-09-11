@@ -31,7 +31,7 @@ export const LoggedInPage = () => {
       <Card>
         <Card.Body>
         <Card.Text>
-        <h1>Welcome {user.displayName} to Today's sync !</h1>
+       Welcome {user.displayName} to Today's sync !
         </Card.Text>
         <div>
          <NewEntryForm />

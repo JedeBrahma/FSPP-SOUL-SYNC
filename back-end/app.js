@@ -6,13 +6,13 @@ const cors = require("cors");
 const app = express();
 
 //CONTROLLERS
-// const entriesController = require("./controllers/entriesController.js");
+const entriesController = require("./controllers/entriesController.js");
 
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
 
-// app.use("/entries", entriesController);
+app.use("/entries", entriesController);
 
 // ROUTES
 //home

@@ -1,0 +1,11 @@
+body, html {
+    height: 100%,
+
+}
+.New {
+    /* background-image: url("https://unsplash.com/photos/Uq3gTiPlqRo"); */
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

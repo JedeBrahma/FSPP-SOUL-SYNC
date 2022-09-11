@@ -47,23 +47,23 @@ export default function NewEntryForm() {
           card_name: response.data.cards[0].name,
           card_desc: response.data.cards[0].meaning_up,
         });
-        // console.log(response, "<----- visible card");
+
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [entry]);
 
   //quote -
   useEffect(() => {
     axios.get(quotesAPI).then((response) => {
       setAllQuotes(response.data)
-        // console.log(setAllQuotes[index].text , "<----- visible quote")
+
         .catch((error) => console.log(error));
     });
   }, []);
 
   useEffect(() => {
     if (allQuotes.length) getQuote();
-  }, [allQuotes]);
+  }, [getQuote]);
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);

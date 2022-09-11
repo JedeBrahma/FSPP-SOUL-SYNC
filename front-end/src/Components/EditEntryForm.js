@@ -84,8 +84,15 @@ export default function EditEntryForm() {
           placeholder={entry.card_desc}
         />
       </Form.Group>
+      <label htmlFor="liked">Like:</label>
+      <input
+        id="liked"
+        type="checkbox"
+        onChange={handleCheckboxChange}
+        checked={entry.liked}
+      />
+      <br />
       
- 
       <Form.Group className="mb-2" controlId="Form.ControlInput3">
         <Form.Label htmlFor="quote">Quote of the Day:</Form.Label>
         <Form.Control

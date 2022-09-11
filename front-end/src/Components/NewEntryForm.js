@@ -134,13 +134,15 @@ export default function NewEntryForm() {
         />
       </Form.Group>
 
-      <Form.Check
-        onChange={handleCheckboxChange}
-        type="switch"
+    
+      <label htmlFor="liked">Like:</label>{' '}
+      <input
         id="liked"
-        label="like"
-        value="entry.liked"
+        type="checkbox"
+        onChange={handleCheckboxChange}
+        checked={entry.liked}
       />
+      <br />
 
       <Form.Group className="mb-2" controlId="Form.ControlInput3">
         <Form.Label htmlFor="quote">Quote of the Day:</Form.Label>

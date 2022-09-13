@@ -53,7 +53,12 @@ export default function EditEntryForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="Form.ControlInput1">
-        <Form.Label>
+        <Form.Label
+          className="fst-italic"
+          style={{
+            color: "#C7ded6",
+          }}
+        >
           Day:{" "}
           {day.toLocaleDateString("default", {
             weekday: "long",
@@ -64,7 +69,9 @@ export default function EditEntryForm() {
         </Form.Label>
       </Form.Group>
       <Form.Group className="mb-2" controlId="Form.ControlInput1">
-        <Form.Label htmlFor="card_name">Card Name:</Form.Label>
+        <Form.Label htmlFor="card_name" style={{ color: "#65c9c3" }}>
+          Card Name:
+        </Form.Label>
         <Form.Control
           id="card_name"
           type="text"
@@ -72,9 +79,10 @@ export default function EditEntryForm() {
           placeholder={entry.card_name}
         />
       </Form.Group>
-
       <Form.Group className="mb-2" controlId="Form.ControlInput2">
-        <Form.Label htmlFor="card_name">Card Meaning:</Form.Label>
+        <Form.Label htmlFor="card_name" style={{ color: "#7caeb5" }}>
+          Card Meaning:
+        </Form.Label>
         <Form.Control
           as="textarea"
           size="sm"
@@ -84,17 +92,19 @@ export default function EditEntryForm() {
           placeholder={entry.card_desc}
         />
       </Form.Group>
-      <label htmlFor="liked">Like:</label>
-      <input
-        id="liked"
-        type="checkbox"
-        onChange={handleCheckboxChange}
-        checked={entry.liked}
-      />
-      <br />
-      
+      <label htmlFor="liked">Like:</label>{" "}
+      <div>
+        <input
+          id="liked"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+          checked={entry.liked}
+        />
+      </div>
       <Form.Group className="mb-2" controlId="Form.ControlInput3">
-        <Form.Label htmlFor="quote">Quote of the Day:</Form.Label>
+        <Form.Label htmlFor="quote" style={{ color: "#bce6eb" }}>
+          Quote of the Day:
+        </Form.Label>
         <Form.Control
           as="textarea"
           size="sm"
@@ -104,9 +114,10 @@ export default function EditEntryForm() {
           placeholder={entry.quote}
         />
       </Form.Group>
-
       <Form.Group className="mb-2" controlId="Form.ControlInput4">
-        <Form.Label htmlFor="q_quthor">Author:</Form.Label>
+        <Form.Label htmlFor="q_quthor" style={{ color: "#65c9c3" }}>
+          Author:
+        </Form.Label>
         <Form.Control
           as="textarea"
           rows={1}
@@ -117,9 +128,13 @@ export default function EditEntryForm() {
           placeholder={entry.q_author}
         />
       </Form.Group>
-
       <Form.Group className="mb-2" controlId="Form.ControlInput5">
-        <Form.Label htmlFor="notes">write your thoughts:</Form.Label>
+        <Form.Label
+          htmlFor="notes"
+          style={{ color: "#0f1a19", fontStyle: "italic" }}
+        >
+          write your thoughts:
+        </Form.Label>
         <Form.Control
           as="textarea"
           id="notes"
@@ -128,13 +143,30 @@ export default function EditEntryForm() {
           placeholder={entry.notes}
         />
       </Form.Group>
-
-      <Button className="m-2" variant="outline-success" type="submit">
-        save this journal
+      <Button
+        className="m-2"
+        variant="outline-secondary"
+        type="submit"
+        style={{
+          borderRadius: "10px",
+          borderColor: "#0f1a19",
+          color: "#0f1a19",
+        }}
+      >
+        save changes
       </Button>
       <br />
       <br />
-      <Button className="m-2" variant="outline-dark" href={`/entries/${id}`}>
+      <Button
+        className="m-2"
+        variant="outline-success"
+        href={`/entries/${id}`}
+        style={{
+          borderRadius: "10px",
+          borderColor: "#0f1a19",
+          color: "#0f1a19",
+        }}
+      >
         Nevermind
       </Button>{" "}
     </Form>

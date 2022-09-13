@@ -47,21 +47,16 @@ export default function NewEntryForm() {
           card_name: response.data.cards[0].name,
           card_desc: response.data.cards[0].meaning_up,
         });
-
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [setEntry]);
 
   //quote -
   useEffect(() => {
     axios.get(quotesAPI).then((response) => {
-      setAllQuotes(response.data)
-
-        .catch((error) => console.log(error));
+      setAllQuotes(response.data).catch((error) => console.log(error));
     });
   }, []);
-
-  
 
   const getQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);
@@ -73,11 +68,12 @@ export default function NewEntryForm() {
       author: author,
     }));
     setEntry({ ...entry, quote: text, q_author: author });
-
   };
   useEffect(() => {
-    if (allQuotes.length) getQuote();
-  },[allQuotes]);
+    if (allQuotes.length) {
+      getQuote();
+    }
+  }, [allQuotes]);
 
   const addEntry = (newEntry) => {
     axios
@@ -103,7 +99,12 @@ export default function NewEntryForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="Form.ControlInput1">
-        <Form.Label>
+        <Form.Label
+          className="fst-italic"
+          style={{
+            color: "#C7ded6",
+          }}
+        >
           Day:{" "}
           {day.toLocaleDateString("default", {
             weekday: "long",
@@ -115,7 +116,9 @@ export default function NewEntryForm() {
       </Form.Group>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput1">
-        <Form.Label htmlFor="card_name">Card Name:</Form.Label>
+        <Form.Label htmlFor="card_name" style={{ color: "#65c9c3" }}>
+          Card Name:
+        </Form.Label>
         <Form.Control
           id="card_name"
           type="text"
@@ -125,7 +128,9 @@ export default function NewEntryForm() {
       </Form.Group>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput2">
-        <Form.Label htmlFor="card_name">Card Meaning:</Form.Label>
+        <Form.Label htmlFor="card_name" style={{ color: "#7caeb5" }}>
+          Card Meaning:
+        </Form.Label>
         <Form.Control
           as="textarea"
           size="sm"
@@ -135,18 +140,20 @@ export default function NewEntryForm() {
           placeholder={cards[0]?.meaning_up}
         />
       </Form.Group>
-    <div>
-      <label htmlFor="liked">Like:</label>{' '}
-      <input
-        id="liked"
-        type="checkbox"
-        onChange={handleCheckboxChange}
-        checked={entry.liked}
-      />
-     </div>
+      <div>
+        <label htmlFor="liked">Like:</label>{" "}
+        <input
+          id="liked"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+          checked={entry.liked}
+        />
+      </div>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput3">
-        <Form.Label htmlFor="quote">Quote of the Day:</Form.Label>
+        <Form.Label htmlFor="quote" style={{ color: "#bce6eb" }}>
+          Quote of the Day:
+        </Form.Label>
         <Form.Control
           as="textarea"
           size="sm"
@@ -158,7 +165,9 @@ export default function NewEntryForm() {
       </Form.Group>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput4">
-        <Form.Label htmlFor="q_quthor">Author:</Form.Label>
+        <Form.Label htmlFor="q_quthor" style={{ color: "#65c9c3" }}>
+          Author:
+        </Form.Label>
         <Form.Control
           as="textarea"
           rows={1}
@@ -171,7 +180,12 @@ export default function NewEntryForm() {
       </Form.Group>
 
       <Form.Group className="mb-2" controlId="Form.ControlInput5">
-        <Form.Label htmlFor="notes">write your thoughts:</Form.Label>
+        <Form.Label
+          htmlFor="notes"
+          style={{ color: "#0f1a19", fontStyle: "italic" }}
+        >
+          write your thoughts:
+        </Form.Label>
         <Form.Control
           as="textarea"
           id="notes"
@@ -181,77 +195,18 @@ export default function NewEntryForm() {
         />
       </Form.Group>
 
-      <Button className="m-2" variant="outline-success" type="submit">
+      <Button
+        className="m-2"
+        variant="outline-secondary"
+        type="submit"
+        style={{
+          borderRadius: "10px",
+          borderColor: "#0f1a19",
+          color: "#0f1a19",
+        }}
+      >
         save this journal
       </Button>
     </Form>
-    // <div className="New">
-    //   <form onSubmit={handleSubmit}>
-    //     <label htmlFor="day">
-    //       Day:{" "}
-    //       {day.toLocaleDateString("default", {
-    //         weekday: "long",
-    //         year: "numeric",
-    //         month: "short",
-    //         day: "numeric",
-    //       })}
-    //     </label>
-
-    //     <br />
-    //     <label htmlFor="card_name">Card of the day:</label>
-    //     <textarea
-    //       id="card_name"
-    //       name="card_name"
-    //       type="text"
-    //       value={cards[0]?.name}
-    //     />
-    //     <br />
-    //     <label htmlFor="card_name">Card Meaning:</label>
-    //     <textarea
-    //       id="card_desc"
-    //       name="card_desc"
-    //       type="text"
-    //       value={cards[0]?.meaning_up}
-    //     />
-    //     <br />
-    //     <label htmlFor="liked">Like:</label>
-    //     <input
-    //       id="liked"
-    //       type="checkbox"
-    //       onChange={handleCheckboxChange}
-    //       checked={entry.liked}
-    //     />
-    //     <br />
-    //     <label htmlFor="quote">Quote for today:</label>
-    //     <textarea
-    //       id="quote"
-    //       type="text"
-    //       name="quote"
-    //       value={quote.text}
-    //     />
-    //     <br />
-    //     <br />
-    //     <label htmlFor="q_author">author:</label>
-    //     <textarea
-    //       id="q_author"
-    //       type="text"
-    //       name="q_author"
-    //       value={quote.author}
-    //     />
-    //     <br />
-    //     <label htmlFor="notes">todays notes:</label>
-    //     <textarea
-    //       id="notes"
-    //       type="text"
-    //       name="notes"
-    //       value={entry.notes}
-    //       placeholder="notes"
-    //       onChange={handleTextChange}
-    //     />
-    //     <br />
-    //     <br />
-    //     <button type="submit">Add Journal</button>
-    //   </form>
-    // </div>
   );
 }

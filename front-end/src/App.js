@@ -1,11 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./Providers/UserProvider";
-import {
-  Container
-
-} from "react-bootstrap";
 import "./index.css";
+import {Container} from "react-bootstrap"
 
 // PAGES
 import Edit from "./Pages/Edit";
@@ -16,19 +13,22 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import { LoginPage } from "./Pages/LoginPage";
 import {LoggedInPage} from "./Pages/LoggedInPage"
+import image from "./images/background-image1.jpg"
 // COMPONENTS
 import NavBar from "./Components/NavBar";
 
+
 function App() {
   return (
-    <div className="App">
-      <UserProvider>
-      <Container
-        style={{
-          backgroundColor: "#cce7e8",
-          color: "#1979a9",
-        }}
-      >
+    <UserProvider>
+       <Container 
+         style={{ 
+          backgroundImage: `url(${image})`, 
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",       
+          // color: "#Cba436", 
+         }} 
+       >    
         <Router>
           <NavBar />
           <main>
@@ -45,8 +45,8 @@ function App() {
           </main>
         </Router>
       </Container>
-      </UserProvider>
-    </div>
+      </UserProvider>      
+  
   );
 }
 

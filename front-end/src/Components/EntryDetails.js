@@ -6,7 +6,6 @@ import { Container, Button, Card } from "react-bootstrap";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-
 export default function EntryDetails() {
   const [entry, setEntry] = useState([]);
   let { id } = useParams();
@@ -37,9 +36,19 @@ export default function EntryDetails() {
   return (
     <div>
       <Container className="mt-3">
-        <Card className="shadow-lg">
+        <Card
+          className="shadow-lg"
+          style={{
+            backgroundColor: "transparent",
+          }}
+        >
           <Card.Body>
-            <Card.Title>
+            <Card.Title
+              className="fst-italic"
+              style={{
+                color: "#C7ded6",
+              }}
+            >
               {day.toLocaleDateString("default", {
                 weekday: "long",
                 year: "numeric",
@@ -47,15 +56,45 @@ export default function EntryDetails() {
                 day: "numeric",
               })}
             </Card.Title>
-            <Card.Title>Card of the Day: {entry.card_name}</Card.Title>
-            <Card.Subtitle>Meaning: {entry.card_desc}</Card.Subtitle>
+            <Card.Title style={{ color: "#65c9c3" }}>
+              Card of the Day: {entry.card_name}
+            </Card.Title>
+            <Card.Subtitle
+              style={{ backgroundColor: "#5e7280", color: "#b3e3d9" }}
+            >
+              Meaning: {entry.card_desc}
+            </Card.Subtitle>
             <p>{entry.liked ? <span> 💖 </span> : null}</p>
-            <Card.Title>Quote of the Day: {entry.quote}</Card.Title>
-            <Card.Text>Author: {entry.q_author}</Card.Text>
-            <Card.Title>Journal: </Card.Title>
-            <Card.Text>{entry.notes}</Card.Text>
+            <Card.Title
+              style={{ backgroundColor: "#7caeb5", color: "#bce6eb" }}
+            >
+              Quote of the Day: {entry.quote}
+            </Card.Title>
+            <Card.Text
+              style={{
+                color: "#416f6c",
+              }}
+            >
+              Author: {entry.q_author}
+            </Card.Text>
+            <Card.Title
+              className="fst-italic"
+              style={{
+                color: "#0f1a19",
+              }}
+            >
+              Journal:{" "}
+            </Card.Title>
+            <Card.Text
+              style={{
+                backgroundColor: "#abe0d5",
+                color: "#0f1a19",
+              }}
+            >
+              {entry.notes}
+            </Card.Text>
           </Card.Body>
-          {/* <div className="showNavigation"> */}
+
           <ButtonToolbar
             className="justify-content-between"
             aria-label="Toolbar with Button groups"
@@ -63,8 +102,13 @@ export default function EntryDetails() {
             <ButtonGroup aria-label="First group">
               <Button
                 className="m-2"
-                variant="outline-dark"
+                variant="outline-secondary"
                 href={`/entries`}
+                style={{
+                  borderRadius: "10px",
+                  borderColor: "#0f1a19",
+                  color: "#0f1a19",
+                }}
               >
                 Back
               </Button>{" "}
@@ -72,8 +116,13 @@ export default function EntryDetails() {
             <ButtonGroup aria-label="2nd group">
               <Button
                 className="m-2"
-                variant="outline-success"
+                variant="outline-warning"
                 href={`/entries/${id}/edit`}
+                style={{
+                  borderRadius: "10px",
+                  borderColor: "#0f1a19",
+                  color: "#0f1a19",
+                }}
               >
                 Edit
               </Button>{" "}
@@ -84,6 +133,11 @@ export default function EntryDetails() {
                 id="btnGroupAddon2"
                 variant="outline-danger"
                 onClick={handleDelete}
+                style={{
+                  borderRadius: "10px",
+                  borderColor: "#0f1a19",
+                  color: "#0f1a19",
+                }}
               >
                 Delete
               </Button>

@@ -6,10 +6,7 @@ import NewEntryForm from "../Components/NewEntryForm";
 import { Button, Card } from "react-bootstrap";
 
 export const LoggedInPage = () => {
-  const imgStyle = {
-    width: "30vh",
-    height: "30vh",
-  };
+
   const navigate = useNavigate();
   const user = useContext(UserContext);
 
@@ -26,17 +23,30 @@ export const LoggedInPage = () => {
   };
   if (user) {
     return (
-      <Card>
-        <Card.Body>
-          <Card.Text>Welcome {user.displayName} to Today's sync !</Card.Text>
-          <div>
+      <Card style={{
+        backgroundColor: "transparent",
+      }}>
+        <Card.Body className="shadow-lg"
+          >
+          <Card.Text     
+          style={{
+                color: "#65c9c3",
+              }}>
+                Welcome {user.displayName} to Today's sync !</Card.Text>
+          
             <NewEntryForm />
-          </div>
+
+         <div className="card-footer" 
+         style={{
+                color: "#65c9c3",
+              }}>
           email: {user.email}
-          <Button className="m-2" variant="warning" onClick={handleLogout}>
+         
+          <Button className="m-2" variant="outline-warning" onClick={handleLogout}>
             {" "}
             Sign Out
           </Button>
+          </div>
         </Card.Body>
       </Card>
     );

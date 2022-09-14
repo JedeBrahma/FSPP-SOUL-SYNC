@@ -26,7 +26,7 @@ function App() {
           backgroundImage: `url(${image})`, 
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",       
-          // color: "#Cba436", 
+      
          }} 
        >    
         <Router>

@@ -53,8 +53,11 @@ export default function NewEntryForm() {
 
   //quote -
   useEffect(() => {
-    axios.get(quotesAPI).then((response) => {
-      setAllQuotes(response.data).catch((error) => console.log(error));
+    axios
+    .get(quotesAPI)
+    .then((response) => {
+      setAllQuotes(response.data)
+      .catch((error) => console.log(error));
     });
   }, []);
 
@@ -115,7 +118,7 @@ export default function NewEntryForm() {
         </Form.Label>
       </Form.Group>
 
-      <Form.Group className="mb-2" controlId="Form.ControlInput1">
+      <Form.Group className="mb-2" >
         <Form.Label htmlFor="card_name" style={{ color: "#65c9c3" }}>
           Card Name:
         </Form.Label>
@@ -127,7 +130,7 @@ export default function NewEntryForm() {
         />
       </Form.Group>
 
-      <Form.Group className="mb-2" controlId="Form.ControlInput2">
+      <Form.Group className="mb-2">
         <Form.Label htmlFor="card_name" style={{ color: "#7caeb5" }}>
           Card Meaning:
         </Form.Label>
@@ -150,7 +153,7 @@ export default function NewEntryForm() {
         />
       </div>
 
-      <Form.Group className="mb-2" controlId="Form.ControlInput3">
+      <Form.Group className="mb-2" >
         <Form.Label htmlFor="quote" style={{ color: "#bce6eb" }}>
           Quote of the Day:
         </Form.Label>
@@ -164,7 +167,7 @@ export default function NewEntryForm() {
         />
       </Form.Group>
 
-      <Form.Group className="mb-2" controlId="Form.ControlInput4">
+      <Form.Group className="mb-2" >
         <Form.Label htmlFor="q_quthor" style={{ color: "#65c9c3" }}>
           Author:
         </Form.Label>
@@ -179,7 +182,7 @@ export default function NewEntryForm() {
         />
       </Form.Group>
 
-      <Form.Group className="mb-2" controlId="Form.ControlInput5">
+      <Form.Group className="mb-2">
         <Form.Label
           htmlFor="notes"
           style={{ color: "#0f1a19", fontStyle: "italic" }}

@@ -17,10 +17,14 @@ export const Login = () => {
   }, [user, navigate]);
 
   return (
-    <>
-      <Card style={{ width: "18rem" }} className="mb-3">
+    
+      <Card className="shadow-lg"
+          style={{
+            color: "#C7ded6",
+            backgroundColor: "transparent"
+          }} >
         <Card.Body>
-          <Card.Text>Welcome and do sign in ..</Card.Text>
+          <Card.Text className="fst-italic">Welcome and do sign in ..</Card.Text>
           <Button className="m-3" variant="info" onClick={signInWithGoogle}>
             Sign in With google
           </Button>
@@ -31,6 +35,6 @@ export const Login = () => {
           </Button>
         </Card.Body>
       </Card>
-    </>
+   
   );
 };

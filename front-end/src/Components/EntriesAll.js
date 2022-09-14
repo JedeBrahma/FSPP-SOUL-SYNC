@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleEntry from "./SingleEntry";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -20,9 +20,9 @@ export default function EntriesAll() {
         {entries.map((entry) => {
           return (
             <Container fluid>
-              <row>
+              <Row>
                 <SingleEntry key={entry.id} entry={entry} />
-              </row>
+              </Row>
             </Container>
           );
         })}
